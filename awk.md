@@ -19,8 +19,14 @@ $ ls -ltr | awk '{printf "The filename/dir name is %s\n", $9}'
 $ ls -ltr | awk '{printf "%d. The filename/dir name is %s\n", NR, $9}'
 
 
-# 비교표현식
 # 비교표현식 - 어떤 값이 조건에 만족할 경우 수행 
 $ ls -ltr | awk ' $9 == "0." {printf "%d. The filename/dir name is %s\n", NR, $9}'
+
+# 정규표현식 -  슬래시로 둘러싸인 문자들로 구성된 패턴
+$ ls -ltr | awk '/^-rw/'
+
+# match 연산자 - 표현식과 매칭되는 것이 있는지 검사하는 연산자 (~ 활용)
+$ ls -ltr | awk '$8 ~ "^10"'
+$ ls -ltr | awk '$8 !~ "^10"'
 
 ```
